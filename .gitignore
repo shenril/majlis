@@ -1,0 +1,42 @@
+# ── macOS cruft ───────────────────────────────────────────────────────────
+.DS_Store
+**/.DS_Store
+
+# ── Local Claude Code settings (may hold machine-specific config) ──────────
+.claude/settings.local.json
+
+# ── Inbox & brain: convention dirs, but their CONTENTS are private ─────────
+# Keep the folders in git (via .gitkeep) but never commit real tasks,
+# deliverables, or per-member working memory.
+Owner's Inbox/*
+!Owner's Inbox/.gitkeep
+Team's Inbox/*
+!Team's Inbox/.gitkeep
+Team's brain/*/*
+!Team's brain/*/.gitkeep
+
+# ── Knowledge base: the encrypted DB and its sidecars are NEVER committed ──
+database/knowledge.db*
+database/*.bak
+database/*.db-wal
+database/*.db-shm
+
+# ── Personal SQL migrations/seeds are private (schema.sql & inspect.sql are
+#    the ONLY shipped .sql files — everything data-bearing stays local) ─────
+database/seed_*.sql
+database/update_*.sql
+database/fix_*.sql
+database/chief-of-staff_*.sql
+database/*_fixture_*.sql
+database/migrate_*.sql
+database/refresh_*.sql
+database/record_*.sql
+database/cleanup_*.sql
+database/arm_*.sql
+database/extract_*.sql
+database/delete_*.sql
+
+# ── Language toolchain artifacts ──────────────────────────────────────────
+**/.venv/
+**/node_modules/
+**/__pycache__/

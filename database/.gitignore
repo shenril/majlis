@@ -1,0 +1,42 @@
+# ============================================================================
+# Majlis — database/.gitignore
+# Keep the SECRET, the BACKUP, and transient SQLite sidecars OUT of version
+# control. NEVER commit the passphrase or anything derived from it.
+# ============================================================================
+
+# --- the SQLCipher passphrase: NEVER commit, in any form --------------------
+# (We never write the key to a file, but block the usual leak vectors anyway.)
+.env
+.env.*
+*.key
+*.secret
+secrets.*
+*passphrase*
+*MAJLIS_DB_KEY*
+
+# --- plaintext backup left behind by encrypt_db.sh --------------------------
+# This is unencrypted data — must never reach the repo. Securely delete it
+# locally once the encrypted DB is verified.
+knowledge.plaintext.bak
+*.plaintext.bak
+
+# --- transient migration artifact -------------------------------------------
+knowledge.encrypted.db
+knowledge.encrypted.db-wal
+knowledge.encrypted.db-shm
+
+# --- SQLite WAL / SHM sidecars (regenerated at runtime) ---------------------
+*.db-wal
+*.db-shm
+*-wal
+*-shm
+
+# --- dedicated Python venv (source-built sqlcipher3 binding, machine-local) --
+# Large, platform-specific, and rebuildable — never commit it.
+.venv/
+__pycache__/
+*.pyc
+
+# NOTE: knowledge.db itself is intentionally NOT ignored here — decide per repo
+# whether the (now encrypted) DB is committed. If you do NOT want the DB in git
+# at all, add `knowledge.db` below as well.
