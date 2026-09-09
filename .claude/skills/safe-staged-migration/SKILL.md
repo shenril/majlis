@@ -80,8 +80,17 @@ It builds a **throwaway plaintext DB from `schema.sql`**, `.read`s your file und
 applies the file a **second time** and diffs the full `.dump` to confirm **idempotency**
 (a correct file's 2nd run changes nothing). It never touches the real `knowledge.db`.
 
-**Require `PASS`.** If it reports a non-idempotent second run, fix the guards until the
-re-run is a clean no-op. A file that isn't green does not get handed off.
+**Running this is the last step of writing a staged file — not an optional check you
+remember to do.** You wrote the file; you run the gate before you mention it to anyone.
+
+**The exit code is the verdict.** `0` means PASS and nothing else. A file that parses and
+applies but is **not idempotent exits non-zero** — re-applying it would double-write the
+owner's knowledge base, and the owner may not remember whether a file already ran. Fix
+the guards (`INSERT OR IGNORE`, `ON CONFLICT`, `UPDATE … WHERE <not-already-done>`) until
+the re-run is a clean no-op. **A file that isn't green does not get handed off.**
+
+The gate also pre-checks the toolchain, so a missing `sqlite3` or an sqlite3 built without
+FTS5 is reported as itself rather than surfacing as a confusing `schema.sql` parse error.
 
 ## Apply + verify (the handoff)
 
