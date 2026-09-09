@@ -28,6 +28,10 @@ Claude Code hook  ──►  bin/majlis-report.sh  ──►  integrations/$MAJL
   (settings.json)        maps event → verb            speaks to the runtime
 ```
 
+`.claude/settings.json` also wires two **always-on** controls that are unrelated to this
+reporting layer: `bin/majlis-guard.sh` (lane enforcement) and `bin/majlis-sql-gate.sh`
+(automatic pre-apply SQL validation). Those are not optional and are not backend-dependent.
+
 `bin/majlis-report.sh` reads the hook JSON on stdin and maps Claude Code events onto a small
 neutral vocabulary. Adapters are **invoked, never sourced**, so an adapter may be written in any
 language and can never corrupt the entry point.

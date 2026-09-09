@@ -10,6 +10,7 @@
 # build artifacts — a re-run of install.py overwrites them. CLAUDE.md is
 # deliberately NOT here: the charter is static so a fresh clone still boots.
 .claude/agents/*.md
+.claude/skills/*-intake/
 team/roster.md
 team/owner-profile.md
 

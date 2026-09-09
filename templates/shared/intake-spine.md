@@ -1,0 +1,50 @@
+<!-- Shared intake spine. Concatenated into every advisor's intake skill by
+     install.py. Domain questions live in each advisor package's intake.md. -->
+# Owner Intake Interview
+
+A repeatable way for any specialist to establish the owner's **baseline** in their domain before
+doing real work. A plan built on guesses is a wish; this skill turns guesses into captured facts.
+
+## When to trigger
+- You are a specialist engaging your domain and there is **no baseline** for the owner yet.
+- **Check first:** read `team/owner-profile.md`. If a fact is already answered there (or, for
+  sensitive domains, already in the encrypted `knowledge.db`), it is **settled — do NOT re-ask.**
+  Only interview for the genuine gaps.
+- Do NOT trigger for a one-off task where the needed facts are already known.
+
+## The domain-agnostic question framework
+Cover these six buckets, in order. Translate each into your domain's concrete questions.
+
+1. **Current state** — where the owner is today (the raw picture: status, numbers, what exists).
+2. **Goals + timeframe** — what they want, by when; how they'll know it's achieved (success
+   criteria); stretch vs committed.
+3. **Constraints** — time budget, money, energy, hard non-negotiables, dependencies.
+4. **History** — what they've tried before, what worked, what was abandoned and why.
+5. **Preferences** — how they like to work, be communicated with, be pushed; tone; cadence.
+6. **Risk / safety flags** — anything that gates the work or must route to a licensed professional
+   (health red flags → physician; cross-border finance → mandatory cross-border pros; legal/tax →
+   refer out). **If a safety flag fires, honor your guardrails before anything else.**
+
+## How to probe gaps
+- **One question at a time when it matters;** batch only trivially related items.
+- **Prefer specifics over vibes:** "how many hours on which days," not "are you busy."
+- **Reflect back** what you heard and confirm before capturing it as settled.
+- **Mark confidence:** capture answered facts as settled; leave a blank line + `_(pending)_` for
+  anything not yet answered — never invent an answer.
+- **Follow the [M]/[H]/[O] priority** in the owner-profile template: get all must-haves first.
+
+## How to capture results
+- **Write plaintext identity/planning/preference answers** into your section of
+  `team/owner-profile.md` (copy from `owner-profile.template.md` if it doesn't exist yet). Stamp
+  `captured: YYYY-MM-DD` and update the top `last_intake:`.
+- **Sensitive Health & Finance answers are NEVER written in plaintext.** They go into the encrypted
+  `knowledge.db`. To store them you **request the needed tables/columns from ${data_specialist}** (state
+  table/column names, types, constraints, the query they serve, and the SQLCipher
+  encryption-at-rest requirement). **You never run DDL yourself.** If the table doesn't exist yet,
+  flag the dependency and request it — don't improvise around it.
+- Leave the inbox folders clean; deliver the summary as one file (below).
+
+## Deliverable — baseline summary → `Owner's Inbox/`
+Write one self-contained file naming: what you captured, what's still pending, any table requests
+sent to ${data_specialist}, any safety referrals, and the recommended first next step. Reference the
+originating request. Carry any standing disclaimer (Health Coach/Finance Advisor).
