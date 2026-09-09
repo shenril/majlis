@@ -110,7 +110,9 @@ One install step, no services to run — it's Markdown, a few scripts, and Claud
 
 ## The shipped roster
 
-These members ship as **working examples** — adapt, rename, or delete them to fit your life.
+`install.py` offers these advisors and the names below are just the **defaults** — you are asked
+what to call each one, and the handle Jarvis dispatches with is slugified from your answer. The two
+marked *always* are installed no matter what, because every other advisor depends on them.
 
 **Founding team (the machinery):**
 
@@ -127,8 +129,8 @@ These members ship as **working examples** — adapt, rename, or delete them to 
 | **Career Coach** | Career | Career strategy, reviews, narratives, and growth planning. |
 | **Health Coach** | Health | Habits, fitness, and wellbeing planning (with safety disclaimers). |
 | **Finance Advisor** | Finance | Personal finance, budgeting, and portfolio thinking (not licensed advice). |
-| **Chief of Staff** | Chief of Staff | Routines, scheduling, follow-ups, and keeping things moving. |
-| **Knowledge Engineer** | Data Management | Owns the knowledge base: schema, migrations, and the validator gate. |
+| **Chief of Staff** *(always)* | Planning | Routines, scheduling, follow-ups, and keeping things moving. |
+| **Knowledge Engineer** *(always)* | Data Management | Owns the knowledge base: schema, migrations, and the validator gate. |
 
 Each specialist file starts with `# Example team member — adapt to your life.` They're
 scaffolding, not prescriptions.

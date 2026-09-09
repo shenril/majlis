@@ -17,8 +17,8 @@ is installed lives in `fragments/` and is concatenated only when that theme is p
 | `${finance_advisor}` / `${finance_advisor_handle}` | the finance advisor |
 | `${career_advisor}` / `${career_advisor_handle}` | the career advisor |
 
-**Display name is free-form** ("Chief of Staff", "Watari"). **The handle is slugified from it**
-(`chief-of-staff`, `watari`) and is what appears in agent frontmatter `name:` and in the roster's
+**Display name is free-form** ("Chief of Staff", "Hiring Manager"). **The handle is slugified from
+it** (`chief-of-staff`, `hiring-manager`) and is what appears in agent frontmatter `name:` and in the roster's
 `subagent_type` column.
 
 ## Names that are NOT placeholders
