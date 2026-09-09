@@ -27,6 +27,10 @@ import sys
 
 ROOT = pathlib.Path(__file__).resolve().parent
 TEMPLATES = ROOT / "templates"
+# Records what the LAST run generated, so this run can retire what it no longer
+# produces. Without it, renaming an advisor leaves the old agent file behind as
+# a loadable ghost the roster does not list.
+MANIFEST = ROOT / ".majlis-manifest"
 
 # Jarvis, HR Lead and Researcher are fixed literals, never placeholders:
 # CLAUDE.md names all three and is static. See templates/PLACEHOLDERS.md.
@@ -236,6 +240,33 @@ def install(chosen: dict, packages: dict, mapping: dict) -> list[str]:
     return written
 
 
+def prune_orphans(written: list[str]) -> list[str]:
+    """Retire artifacts a PREVIOUS run generated that this one did not.
+
+    Only paths recorded in our own manifest are ever removed, so a member added
+    by the hiring pipeline — which writes agent files we never generated — is
+    untouched. Brain folders are deliberately NOT pruned: they hold a member's
+    working memory, and losing that to a rename would be far worse than a stale
+    directory. Those are reported instead.
+    """
+    if not MANIFEST.exists():
+        return []
+    previous = [ln.strip() for ln in MANIFEST.read_text().splitlines() if ln.strip()]
+    stale = [rel for rel in previous if rel not in written]
+    removed = []
+    for rel in stale:
+        path = ROOT / rel
+        if rel.endswith("/"):
+            continue                      # brain folders: reported, never deleted
+        if path.is_file():
+            path.unlink()
+            removed.append(rel)
+            skill_dir = path.parent
+            if skill_dir.name.endswith("-intake") and not any(skill_dir.iterdir()):
+                skill_dir.rmdir()
+    return removed
+
+
 def parse_answers(path: pathlib.Path) -> dict:
     answers = {}
     for line in path.read_text().splitlines():
@@ -267,6 +298,8 @@ def main() -> int:
         validate(chosen, packages)
         mapping = build_mapping(chosen, packages)
         written = install(chosen, packages, mapping)
+        removed = prune_orphans(written)
+        MANIFEST.write_text("\n".join(written) + "\n")
     except InstallError as exc:
         print(f"\nFAILED: {exc}", file=sys.stderr)
         return 1
@@ -277,6 +310,18 @@ def main() -> int:
     print(f"\nYour council is ready — {len(written)} paths written:\n")
     for theme, name in chosen.items():
         print(f"  {name:<24} {slugify(name):<22} ({theme})")
+
+    if removed:
+        print(f"\nRetired {len(removed)} artifact(s) from a previous run:")
+        for rel in removed:
+            print(f"  - {rel}")
+    orphan_brains = [d.name for d in sorted((ROOT / "Team's brain").glob("*"))
+                     if d.is_dir() and f"Team's brain/{d.name}/" not in written]
+    if orphan_brains:
+        print("\nThese brain folders belong to members no longer installed. They hold working")
+        print("memory so they were NOT deleted — remove them yourself if you don't want them:")
+        for name in orphan_brains:
+            print(f"  - Team's brain/{name}/")
     print("\nNext: open this folder in Claude Code and say")
     print('  "Jarvis, start my intake."\n')
     return 0

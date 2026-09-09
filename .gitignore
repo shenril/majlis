@@ -50,3 +50,6 @@ database/delete_*.sql
 **/.venv/
 **/node_modules/
 **/__pycache__/
+
+# Installer bookkeeping: records what the last run generated.
+.majlis-manifest

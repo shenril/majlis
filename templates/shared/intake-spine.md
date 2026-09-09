@@ -47,4 +47,4 @@ Cover these six buckets, in order. Translate each into your domain's concrete qu
 ## Deliverable — baseline summary → `Owner's Inbox/`
 Write one self-contained file naming: what you captured, what's still pending, any table requests
 sent to ${data_specialist}, any safety referrals, and the recommended first next step. Reference the
-originating request. Carry any standing disclaimer (Health Coach/Finance Advisor).
+originating request. If your role carries a standing disclaimer, carry it here too.
