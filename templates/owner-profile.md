@@ -1,7 +1,7 @@
 ---
 doc: Owner Dossier (TEMPLATE)
 status: template
-maintained_by: Knowledge Engineer
+maintained_by: ${data_specialist}
 last_intake:            # stamp YYYY-MM-DD each time you fill/revise an answer
 storage_note: >
   Sections A/B/C are PLAINTEXT (identity, UX, and planning fields).
@@ -24,7 +24,8 @@ db: <REPO_ROOT>/database/knowledge.db
 - **Read before you ask.** If a fact is answered here, it is settled — do **not** re-ask the
   owner. Pull it from here (or, for Health/Finance, from the encrypted DB).
 - **One writer per section.** Only the named owner teammate edits their section:
-  A → Knowledge Engineer · B → *(your UX/design member)* · C → Chief of Staff · D → Health Coach · E → Finance Advisor.
+  A → ${data_specialist} · B → *(your UX/design member)* · C → ${planning_advisor}. Sections
+  below C are owned by the advisor named in that section's own header.
 - **Date every change.** Stamp `captured:` (and update the top `last_intake:`) whenever you
   fill or revise an answer. Use ISO dates (`YYYY-MM-DD`).
 - **Sensitive health & finance → encrypted DB.** Sections D and E answers are **never** written
@@ -38,7 +39,7 @@ db: <REPO_ROOT>/database/knowledge.db
 ---
 
 ## Section A — Core Profile
-**owner: Knowledge Engineer** · plaintext (identity fields OK here)
+**owner: ${data_specialist}** · plaintext (identity fields OK here)
 
 ### A1 · Identity
 `captured:`
@@ -183,7 +184,7 @@ db: <REPO_ROOT>/database/knowledge.db
 ---
 
 ## Section C — Planning & Accountability
-**owner: Chief of Staff** · plaintext
+**owner: ${planning_advisor}** · plaintext
 
 ### C1 · North Star
 `captured:`
@@ -288,106 +289,4 @@ db: <REPO_ROOT>/database/knowledge.db
 
 ---
 
-## Section D — Health
-**owner: Health Coach** · `[SENSITIVE — answers stored encrypted in knowledge.db, owned by Health Coach]`
-
-> **Framing:** this is a **coaching intake, not medical care**. Health Coach does not diagnose,
-> prescribe, or order tests. **Physician clearance gates any plan** that touches a condition,
-> medication, or symptom. All answers below are stored **encrypted only** (in the SQLCipher
-> knowledge.db) — **never written in plaintext here**. 🔒 marks especially sensitive items.
-
-`[SENSITIVE → encrypted]` — capture answers into `knowledge.db`, not into this file. Question list:
-
-### D1 · Goals
-- Top 1–3 health goals [M]
-- 3mo & 12mo success + aesthetic/performance/health priority [M]
-- Deeper why [H]
-- Past attempts — worked/abandoned + why [M]
-- Weekly hours for training+meal-prep + which days [M]
-- Events to periodize toward [O]
-
-### D2 · Health data 🔒
-- Height + current weight [M]
-- Diagnosed conditions [M]
-- Medications + doses [M]
-- Supplements [M]
-- Recent labs/biomarkers with their reference ranges [M if available]
-- Family history + age of onset [H]
-- RHR/BP/HRV/VO2max/BF% if known [H]
-- Last physical + regular physician [H]
-- RED-FLAG screen — chest pain/SOB/dizziness/fainting/fatigue-on-exertion, pregnancy, eating-disorder history [M]
-
-### D3 · Nutrition
-- Allergies/intolerances [M]
-- Dietary pattern + foods loved/refused [M]
-- Typical day of eating [M]
-- Cooking situation [M]
-- Cultural/regional food context [H]
-- Alcohol + caffeine [M]
-- Water [H]
-- Appetite/cravings/digestion [H]
-- Budget/sourcing [O]
-
-### D4 · Training
-- Activity level/steps/job [M]
-- Training history [M]
-- Injuries/surgeries/limitations [M]
-- Equipment access per location [M]
-- Enjoyed sports [H]
-- Performance/aesthetic targets [H]
-- Recovery — sleep/stress/soreness [M]
-- Preferred training style [O]
-
-### D5 · Wearables/sleep
-- Wearable + willingness to share exports [H]
-- Sleep schedule/quality + any jet-lag pattern [M]
-- Preferred logging method [H]
-- Check-in/trend-review frequency [H]
-
----
-
-## Section E — Finance
-**owner: Finance Advisor** · `[SENSITIVE — answers stored encrypted in knowledge.db, owned by Finance Advisor]`
-
-> **Framing:** this is **organizing/coaching, not licensed advice**. Any cross-border
-> tax/residency question is a **MANDATORY referral to licensed pros in BOTH jurisdictions**. All
-> answers are **encrypted only** (in the SQLCipher knowledge.db) — **never plaintext here**. Store
-> **MASKED account identifiers only** (never full numbers/credentials). Every figure is
-> **provisional → verify against statements**. 🔒 marks especially sensitive items.
-
-`[SENSITIVE → encrypted]` — capture answers into `knowledge.db`, not into this file. Question list:
-
-### E1 · Assets 🔒
-- Account inventory — institution/type/country/currency/owner/rough balance, masked id [M]
-- Holdings inside each wrapper [H]
-- Real/physical assets — property/vehicle/business/pension [H]
-- Liabilities/debts — balance/currency/rate/country [M]
-- Cash & emergency buffer [M]
-
-### E2 · Cross-border 🔒
-- Tax residency & filing in each country (owner's current understanding) [M, highest-risk]
-- Cross-border account map + when you moved [M]
-- Foreign-asset reporting awareness [M]
-- Beneficiaries designated & current [H]
-- Documents on hand (statements/tax docs/exports) [H]
-- Currency split of income/spending/assets [H]
-
-### E3 · Investing
-- Goals & horizons — target/currency/date [M]
-- Retirement timing + country [M]
-- Risk tolerance (reaction to 20–30% drop) [M]
-- Existing strategy + recurring contributions [H]
-- Constraints/values incl. ESG/liquidity [O]
-
-### E4 · Cash flow 🔒
-- Income sources & amounts (net preferred) + rhythm [M]
-- Recurring fixed expenses [M]
-- Variable/discretionary spend [H]
-- Savings rate [H]
-- Money leaks + how/how often you move money across currencies (FX cost) [H]
-
-### E5 · Priorities
-- Top financial worries [M]
-- Top 3 to fix this quarter [M]
-- Engagement level (weekly/monthly/hands-off) [H]
-- Existing pros — financial planner / tax advisor / attorney [H]
+${profile_sections}

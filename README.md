@@ -83,17 +83,28 @@ flowchart TD
    ```bash
    git clone <your-fork-url> majlis && cd majlis
    ```
-2. **Open the folder in Claude Code.** The charter in `CLAUDE.md` loads automatically and
+2. **Run the installer — this is a prerequisite, not an optional step.**
+   ```bash
+   python3 install.py
+   ```
+   It asks which parts of your life you want to delegate (health, finance, career — plus the two
+   advisors everything depends on) and **what to call each advisor**, then renders your agent
+   files, your roster, your brain folders, and your owner dossier. Python 3 standard library
+   only — nothing to install.
+
+   The repo ships **boilerplate in `templates/`, not finished agents**, so until you run this
+   there are no advisors to talk to. A re-run overwrites the generated files.
+3. **Open the folder in Claude Code.** The charter in `CLAUDE.md` loads automatically and
    defines how the orchestrator behaves.
-3. **Talk to Jarvis.** Just describe what you need in plain language:
+4. **Talk to Jarvis.** Just describe what you need in plain language:
    > "Jarvis, help me prep for a performance review next month."
-4. **Let it route or hire.** If a specialist fits, Jarvis delegates to them. If not, Jarvis
+5. **Let it route or hire.** If a specialist fits, Jarvis delegates to them. If not, Jarvis
    runs the hiring pipeline (Researcher → HR Lead) to create the right specialist, then
    delegates.
-5. **Or work through the inbox.** Drop a task file into `Team's Inbox/` and say *"Jarvis,
+6. **Or work through the inbox.** Drop a task file into `Team's Inbox/` and say *"Jarvis,
    check the inbox."* Finished deliverables appear in `Owner's Inbox/`.
 
-No build step, no services to run — it's Markdown, a few scripts, and Claude Code.
+One install step, no services to run — it's Markdown, a few scripts, and Claude Code.
 
 ---
 

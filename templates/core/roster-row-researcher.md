@@ -1,0 +1,1 @@
+| **Researcher** | Senior Researcher | Calm, evidence-driven; never guesses when he can verify. | Deep multi-source research; produces Expertise Briefs that ground every hire. | `researcher` | Founding |

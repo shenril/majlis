@@ -1,0 +1,9 @@
+# Manifest for the finance advisor package. Read by install.py.
+theme: finance
+order: 4
+kind: elective
+placeholder: finance_advisor
+default_name: Finance Advisor
+model: opus
+summary: Net worth, cash flow, and multi-year investment planning.
+requires: [knowledge, planning]

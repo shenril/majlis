@@ -1,0 +1,9 @@
+# Manifest for the health advisor package. Read by install.py.
+theme: health
+order: 3
+kind: elective
+placeholder: health_advisor
+default_name: Health Coach
+model: opus
+summary: Nutrition, biomarkers, and training programs.
+requires: [knowledge, planning]

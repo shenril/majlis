@@ -1,0 +1,9 @@
+# Manifest for the planning advisor package. Read by install.py.
+theme: planning
+order: 2
+kind: prerequisite
+placeholder: planning_advisor
+default_name: Chief of Staff
+model: opus
+summary: Owns the goal cascade, habits, and the review rhythm.
+requires: [knowledge]

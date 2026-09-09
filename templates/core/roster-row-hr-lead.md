@@ -1,0 +1,1 @@
+| **HR Lead** | Head of People (HR) | Warm but exacting; turns a need into the right hire. | Designs & onboards new AI team members from Researcher's research; maintains this roster. | `hr-lead` | Founding |

@@ -1,0 +1,9 @@
+# Manifest for the knowledge advisor package. Read by install.py.
+theme: knowledge
+order: 1
+kind: prerequisite
+placeholder: data_specialist
+default_name: Knowledge Engineer
+model: opus
+summary: Owns the knowledge base: schema, ingestion, search, migrations.
+requires: []
