@@ -150,6 +150,11 @@ orchestration state.
   owner's real database.
 - **Naming:** Each member has a distinct human-style name and a one-line persona so the owner
   can address them directly.
+- **Enforced scope (always on):** the charter's lane boundaries are backed by hooks, not just
+  prose. `bin/majlis-guard.sh` refuses a member editing member definitions, the install
+  templates, or another member's brain folder; `bin/majlis-sql-gate.sh` runs the pre-apply SQL
+  validator automatically whenever a staged `database/*.sql` is written, so that gate no longer
+  depends on a member remembering. The owner's own main thread is never restricted.
 - **Runtime integrations (optional, default-off):** dispatch may be *observable*. When the owner
   sets `MAJLIS_BACKEND`, Claude Code hooks report which member holds the floor to an external
   agent runtime (e.g. Herdr) via `bin/majlis-report.sh` and an adapter in `integrations/`. This
@@ -200,7 +205,9 @@ Majlis/
 │   │   └── README.md         ← how to add reusable skills (none ship in v1)
 │   └── settings.json         ← hooks wiring for optional runtime integrations
 ├── bin/
-│   └── majlis-report.sh      ← hook entry point: maps events → the neutral verbs
+│   ├── majlis-report.sh      ← hook entry point: maps events → the neutral verbs
+│   ├── majlis-guard.sh       ← lane enforcement (PreToolUse on Write/Edit)
+│   └── majlis-sql-gate.sh    ← runs the pre-apply SQL validator automatically
 ├── integrations/             ← optional, default-off runtime adapters
 │   ├── README.md             ← the four-verb contract + trade-offs
 │   ├── noop.sh               ← default: does nothing
