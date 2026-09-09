@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 340" width="1200" height="340" role="img" aria-label="Majlis — your own council of AI advisors">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#131a33"/>
+      <stop offset="55%" stop-color="#1b1740"/>
+      <stop offset="100%" stop-color="#241a3d"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f6d98a"/>
+      <stop offset="100%" stop-color="#d9a441"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="35%" r="60%">
+      <stop offset="0%" stop-color="#e9b45a" stop-opacity="0.20"/>
+      <stop offset="100%" stop-color="#e9b45a" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1200" height="340" rx="18" fill="url(#bg)"/>
+  <rect width="1200" height="340" rx="18" fill="url(#glow)"/>
+
+  <!-- council-chamber arches -->
+  <g stroke="url(#gold)" fill="none" stroke-width="2" opacity="0.30">
+    <path d="M175 250 V150 a55 55 0 0 1 110 0 V250"/>
+    <path d="M320 250 V132 a68 68 0 0 1 136 0 V250"/>
+    <path d="M492 250 V112 a84 84 0 0 1 168 0 V250"/>
+    <path d="M696 250 V132 a68 68 0 0 1 136 0 V250"/>
+    <path d="M868 250 V150 a55 55 0 0 1 110 0 V250"/>
+  </g>
+  <line x1="140" y1="250" x2="1060" y2="250" stroke="url(#gold)" stroke-width="2" opacity="0.45"/>
+
+  <!-- the seated council: one orchestrator, five advisors -->
+  <circle cx="576" cy="196" r="15" fill="url(#gold)"/>
+  <g fill="#f6d98a" opacity="0.85">
+    <circle cx="230" cy="212" r="8"/>
+    <circle cx="388" cy="205" r="8"/>
+    <circle cx="482" cy="200" r="8"/>
+    <circle cx="670" cy="200" r="8"/>
+    <circle cx="764" cy="205" r="8"/>
+    <circle cx="923" cy="212" r="8"/>
+  </g>
+  <g stroke="#f6d98a" stroke-width="1.1" opacity="0.35">
+    <path d="M576 196 L230 212M576 196 L388 205M576 196 L482 200M576 196 L670 200M576 196 L764 205M576 196 L923 212"/>
+  </g>
+
+  <text x="600" y="120" text-anchor="middle" fill="#fdf6e7"
+        font-family="Georgia, 'Times New Roman', serif" font-size="72" letter-spacing="14">MAJLIS</text>
+  <text x="600" y="160" text-anchor="middle" fill="#e9b45a"
+        font-family="ui-sans-serif, -apple-system, Segoe UI, Helvetica, Arial, sans-serif"
+        font-size="19" letter-spacing="3.5">YOUR OWN COUNCIL OF AI ADVISORS</text>
+  <text x="600" y="300" text-anchor="middle" fill="#9aa4c7"
+        font-family="ui-sans-serif, -apple-system, Segoe UI, Helvetica, Arial, sans-serif"
+        font-size="16">One person to talk to. A whole team behind them.</text>
+</svg>

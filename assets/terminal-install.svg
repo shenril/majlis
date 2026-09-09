@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 745" width="860" height="745" role="img" aria-label="Terminal session running the Majlis installer">
+  <defs><linearGradient id="tb" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#232a3d"/><stop offset="100%" stop-color="#1b2131"/></linearGradient></defs>
+  <rect width="860" height="745" rx="12" fill="#0d1117" stroke="#2a3350"/>
+  <path d="M0 12 a12 12 0 0 1 12-12 h836 a12 12 0 0 1 12 12 v30 h-860 z" fill="url(#tb)"/>
+  <circle cx="26" cy="21" r="6" fill="#ff5f57"/><circle cx="47" cy="21" r="6" fill="#febc2e"/><circle cx="68" cy="21" r="6" fill="#28c840"/>
+  <text x="430" y="26" text-anchor="middle" fill="#7d879e" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12.5">majlis — setup</text>
+  <text x="26" y="74.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="13.5"><tspan fill="#7ee2a8">$ </tspan><tspan fill="#e6edf3">python3 install.py</tspan></text>
+  <text x="26" y="117.0" fill="#d7c9f5" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="13.5" xml:space="preserve">Your council always includes Jarvis (orchestrator), HR Lead and Researcher.</text>
+  <text x="26" y="138.5" fill="#d7c9f5" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="13.5" xml:space="preserve">These two run the machinery every other advisor depends on:</text>
+  <text x="26" y="181.5" fill="#f0b86e" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="13.5" xml:space="preserve">  · Knowledge Engineer — Owns the knowledge base: schema, search, migrations.</text>
+  <text x="26" y="203.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="13.5" xml:space="preserve"><tspan fill="#8b94b8">  name for the knowledge advisor [Knowledge Engineer]: </tspan><tspan fill="#79c0ff" font-weight="bold">Alfred</tspan></text>
+  <text x="26" y="246.0" fill="#f0b86e" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="13.5" xml:space="preserve">  · Chief of Staff — Owns the goal cascade, habits, and the review rhythm.</text>
+  <text x="26" y="267.5" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="13.5" xml:space="preserve"><tspan fill="#8b94b8">  name for the planning advisor [Chief of Staff]: </tspan></text>
+  <text x="26" y="310.5" fill="#d7c9f5" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="13.5" xml:space="preserve">Now the elective themes — pick the parts of your life to delegate:</text>
+  <text x="26" y="353.5" fill="#f0b86e" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="13.5" xml:space="preserve">  · health — Nutrition, biomarkers, and training programs.</text>
+  <text x="26" y="375.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="13.5" xml:space="preserve"><tspan fill="#8b94b8">  delegate health? [Y/n]: </tspan><tspan fill="#79c0ff" font-weight="bold">y</tspan></text>
+  <text x="26" y="396.5" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="13.5" xml:space="preserve"><tspan fill="#8b94b8">  name for the health advisor [Health Coach]: </tspan><tspan fill="#79c0ff" font-weight="bold">Coach</tspan></text>
+  <text x="26" y="418.0" fill="#f0b86e" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="13.5" xml:space="preserve">  · finance — Net worth, cash flow, and investment planning.</text>
+  <text x="26" y="439.5" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="13.5" xml:space="preserve"><tspan fill="#8b94b8">  delegate finance? [Y/n]: </tspan><tspan fill="#79c0ff" font-weight="bold">n</tspan></text>
+  <text x="26" y="461.0" fill="#f0b86e" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="13.5" xml:space="preserve">  · career — Levelling, promotion evidence, sponsorship, brand.</text>
+  <text x="26" y="482.5" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="13.5" xml:space="preserve"><tspan fill="#8b94b8">  delegate career? [Y/n]: </tspan><tspan fill="#79c0ff" font-weight="bold">y</tspan></text>
+  <text x="26" y="525.5" fill="#7ee2a8" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="13.5" xml:space="preserve">Your council is ready — 11 paths written:</text>
+  <text x="26" y="568.5" fill="#e6edf3" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="13.5" xml:space="preserve">  Alfred                 alfred            (knowledge)</text>
+  <text x="26" y="590.0" fill="#e6edf3" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="13.5" xml:space="preserve">  Chief of Staff         chief-of-staff    (planning)</text>
+  <text x="26" y="611.5" fill="#e6edf3" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="13.5" xml:space="preserve">  Coach                  coach             (health)</text>
+  <text x="26" y="633.0" fill="#e6edf3" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="13.5" xml:space="preserve">  Career Coach           career-coach      (career)</text>
+  <text x="26" y="676.0" fill="#8b94b8" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="13.5" xml:space="preserve">Next: open this folder in Claude Code and say</text>
+  <text x="26" y="697.5" fill="#79c0ff" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="13.5" xml:space="preserve">  "Jarvis, start my intake."</text>
+</svg>
