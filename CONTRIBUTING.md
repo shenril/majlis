@@ -25,12 +25,17 @@ If you're unsure whether something is personal, leave it out.
 Majlis/
 ├── CLAUDE.md            ← the operating charter every member reads
 ├── README.md
+├── install.py           ← renders templates/ into a council (run before first use)
+├── templates/           ← THE TRACKED SOURCE: boilerplate install.py instantiates
+│   ├── core/            ← founding-trio agent templates
+│   ├── advisors/        ← one self-contained package per advisor
+│   └── shared/          ← fragments shared across advisors
 ├── team/
-│   ├── roster.md        ← canonical list of members and what they own
-│   └── owner-profile.template.md  ← blank dossier structure (placeholders only)
+│   ├── roster.md        ← GENERATED list of members and what they own
+│   └── owner-profile.md ← GENERATED owner dossier
 ├── .claude/
-│   ├── agents/          ← one Markdown file per team member (the subagents)
-│   └── skills/          ← optional reusable skill packages
+│   ├── agents/          ← GENERATED, one file per installed member
+│   └── skills/          ← reusable skill packages (per-advisor intake is generated)
 ├── database/            ← optional encrypted knowledge base + governance layer
 ├── Team's Inbox/        ← intake (you drop tasks here)
 ├── Owner's Inbox/       ← outbox (finished deliverables land here)
@@ -41,6 +46,9 @@ Majlis/
 
 Majlis grows the same way in the template as it does in real use — follow the built-in
 **Researcher → HR Lead** pattern:
+
+> **Edit `templates/`, never the generated output.** A change to `.claude/agents/*.md`,
+> `team/roster.md` or `team/owner-profile.md` is wiped by the next `install.py` run.
 
 1. **Research (Researcher's job).** Ground the persona in what a real expert in that domain
    actually does: their core skills, tools, methodologies, vocabulary, typical deliverables,
