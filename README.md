@@ -141,6 +141,31 @@ pure-orchestration template.
 
 ---
 
+## Optional: see your council in an agent runtime
+
+Majlis members are dispatched as in-process subagents, so by default a terminal multiplexer sees
+one Claude Code process rather than seven advisors. Set `MAJLIS_BACKEND` and Majlis will report
+**which advisor currently holds the floor, and whether it's blocked on you**, to an external
+runtime:
+
+```bash
+export MAJLIS_BACKEND=herdr    # or: log
+```
+
+| Backend | What it does |
+|---|---|
+| `noop` *(default)* | Nothing at all. |
+| `herdr` | Labels your [Herdr](https://herdr.dev) pane with the live advisor and its state. |
+| `log` | Appends JSONL to `Team's brain/jarvis/agent-events.jsonl` — works with no runtime. |
+
+Adding another runtime means writing one small adapter against a four-verb contract. Details and
+the known trade-offs are in [`integrations/README.md`](integrations/README.md).
+
+**This is entirely optional and off unless you opt in.** Leave `MAJLIS_BACKEND` unset and the
+hooks exit immediately.
+
+---
+
 ## Security note
 
 **Never commit your knowledge base or your passphrase.**

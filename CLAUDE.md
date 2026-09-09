@@ -150,6 +150,11 @@ orchestration state.
   owner's real database.
 - **Naming:** Each member has a distinct human-style name and a one-line persona so the owner
   can address them directly.
+- **Runtime integrations (optional, default-off):** dispatch may be *observable*. When the owner
+  sets `MAJLIS_BACKEND`, Claude Code hooks report which member holds the floor to an external
+  agent runtime (e.g. Herdr) via `bin/majlis-report.sh` and an adapter in `integrations/`. This
+  changes nothing about how Jarvis routes or how members work — it only reports state, and the
+  member's `subagent_type` is the identifier reported. See `integrations/README.md`.
 
 ---
 
@@ -192,8 +197,18 @@ Majlis/
 │   │   ├── finance-advisor.md         ← example: finance advisor
 │   │   ├── chief-of-staff.md         ← example: chief of staff
 │   │   └── knowledge-engineer.md     ← example: knowledge engineer (owns the DB)
-│   └── skills/
-│       └── README.md         ← how to add reusable skills (none ship in v1)
+│   ├── skills/
+│   │   └── README.md         ← how to add reusable skills (none ship in v1)
+│   └── settings.json         ← hooks wiring for optional runtime integrations
+├── bin/
+│   └── majlis-report.sh      ← hook entry point: maps events → the neutral verbs
+├── integrations/             ← optional, default-off runtime adapters
+│   ├── README.md             ← the four-verb contract + trade-offs
+│   ├── noop.sh               ← default: does nothing
+│   ├── herdr.sh              ← reports member state to a Herdr pane
+│   └── log.sh                ← appends JSONL; works with no runtime
+├── tests/
+│   └── majlis-report.test.sh ← drives the entry point with recorded hook payloads
 ├── team/
 │   ├── roster.md             ← canonical team registry
 │   └── owner-profile.template.md  ← blank owner dossier (copy → owner-profile.md, git-ignored)
