@@ -1,0 +1,122 @@
+# =============================================================================
+# theme-map.yaml · which database tables serve which life theme
+# -----------------------------------------------------------------------------
+# database/schema.sql is the canonical DDL and is ALWAYS installed whole. This
+# file does not change it, gate it, or subset it — it DESCRIBES it, so that:
+#
+#   * an advisor can be told which tables are legitimately theirs;
+#   * a staged migration can be checked for touching something out of scope;
+#   * a reader has a map of a 2,400-line file whose grouping is otherwise only
+#     implicit in the order the tables happen to appear.
+#
+# Prose companion: database/THEMES.md
+# Drift check:     tests/theme-map.test.sh  (every table in exactly one theme)
+#
+# RULE: when a DDL migration adds or drops a table, update this file in the
+# same change. The drift check will fail otherwise — that is the point.
+# =============================================================================
+
+themes:
+
+  core:
+    always_installed: true
+    owner: data-specialist          # Knowledge Engineer in the shipped roster
+    summary: >
+      The temporal spine, the entity graph and the search layer. Every other
+      theme links into these; nothing works without them.
+    tables:
+      - entity_types
+      - entries
+      - organizations
+      - people
+      - projects
+      - milestones
+      - tasks
+      - meetings
+      - meeting_attendees
+      - interactions
+      - assets
+      - asset_metadata
+      - tags
+      - taggings
+      - links
+      - search_fts
+      - professionals
+
+  planning:
+    always_installed: true
+    owner: planning-advisor         # Chief of Staff in the shipped roster
+    summary: >
+      The goal cascade (North Star -> OKRs -> SMART -> weekly -> daily), the
+      review rhythm, and habit adherence tracking.
+    tables:
+      - goals
+      - key_results
+      - key_result_sources
+      - daily_plans
+      - plan_blocks
+      - reviews
+      - habits
+      - habit_logs
+
+  health:
+    always_installed: false
+    owner: health-advisor           # Health Coach in the shipped roster
+    summary: >
+      Nutrition, biomarkers and body metrics, and structured training.
+      SENSITIVE — encrypted at rest, never written to the plaintext dossier.
+    tables:
+      - meal_plans
+      - foods
+      - meals
+      - meal_items
+      - nutrition_logs
+      - lab_results
+      - body_metrics
+      - wearable_rollups
+      - exercises
+      - training_programs
+      - mesocycles
+      - workouts
+      - workout_sets
+      - owner_health_profile
+      - medications
+      - supplements
+      - family_history
+      - intake_redflags
+
+  finance:
+    always_installed: false
+    owner: finance-advisor          # Finance Advisor in the shipped roster
+    summary: >
+      Accounts and holdings, cash flow, net worth, and the cross-border tax
+      picture. SENSITIVE — encrypted at rest, identifiers stored masked.
+    tables:
+      - accounts
+      - balance_snapshots
+      - holdings
+      - transactions
+      - asset_items
+      - liabilities
+      - net_worth_snapshots
+      - investment_plans
+      - financial_goals
+      - fx_rates
+      - tax_profile
+      - beneficiaries
+      - investment_profile
+      - equity_grants
+      - vesting_events
+
+  career:
+    always_installed: false
+    owner: career-advisor           # Career Coach in the shipped roster
+    summary: >
+      Levelling evidence, sponsor network, coaching history and the personal
+      brand pipeline.
+    tables:
+      - career_goals
+      - promotion_evidence
+      - brand_artifacts
+      - sponsors_network
+      - coaching_log
