@@ -1,165 +1,301 @@
 # Majlis
 
-**Your personal council of AI advisors — an orchestrator plus a roster of named specialist
-subagents you run inside [Claude Code](https://claude.com/claude-code).**
+**Your own small team of AI advisors — for your life, not your code.**
 
-*Majlis* (مجلس) means "a place of sitting" — a council chamber where advisors gather. This
-template gives you exactly that: a single orchestrator you talk to, a team of specialist
-personas it dispatches on your behalf, and a pipeline that lets the team **hire new members**
-when a request needs expertise nobody has yet.
-
-Most Claude Code subagent kits are built for shipping software — coding agents, git
-worktrees, PR review. Majlis is different: it's a council for **your life and work** — career,
-health, finances, routines, and whatever else you add — that grows itself over time.
+You talk to one of them. They handle the rest.
 
 ---
 
-## How it works
+Imagine having a chief of staff who keeps your goals on track, a health coach who remembers your
+last blood test, and a finance advisor who knows your accounts — plus one person you talk to who
+passes your questions along to whichever of them should answer.
 
-You speak to **one** point of contact: the orchestrator (shipped as *Jarvis*). It never does
-the work itself — it understands your request, picks the right specialist, and delegates.
-When no specialist fits, it runs a **hiring pipeline** to create one, then delegates.
+That's Majlis. It runs inside [Claude Code](https://claude.com/claude-code), and you set it up in
+about two minutes.
+
+> *Majlis* (مجلس) is Arabic for "a place of sitting" — the room where advisors gather.
+
+**You don't need to know anything about AI agents to use this.** If you can type a sentence into a
+terminal, you can run it. The technical details all live near the bottom of this page, and you can
+happily ignore them.
+
+---
+
+## What you can ask it
+
+Real things people use it for:
+
+> *"I have a performance review in three weeks. Help me prepare."*
+
+> *"Here are my blood test results. What should I be paying attention to?"*
+
+> *"I want to save for a house in four years. Is that realistic on my income?"*
+
+> *"What did I say I'd do this month, and how far behind am I?"*
+
+> *"Remember that my sister's birthday is in March and she likes pottery."*
+
+You write it in plain language. Behind the scenes it goes to whichever advisor is right for it, and
+the answer comes back to you.
+
+---
+
+## Get started
+
+### You'll need two things first
+
+| | |
+|---|---|
+| **Claude Code** | The app this runs inside. [Install it here](https://claude.com/claude-code) — takes a minute. |
+| **Python 3** | Already on every Mac and Linux machine. On Windows, [get it here](https://www.python.org/downloads/). Check yours with `python3 --version`. |
+
+That's it. Nothing else to install, no accounts to create, no servers to run.
+
+### Step 1 — Download it
+
+```bash
+git clone https://github.com/shenril/majlis.git majlis
+cd majlis
+```
+
+### Step 2 — Build your council
+
+```bash
+python3 install.py
+```
+
+This asks a few friendly questions — **which parts of your life you want help with**, and **what
+you'd like to call each advisor**. It looks like this:
+
+```
+Your council always includes Jarvis (orchestrator), HR Lead and Researcher.
+These two run the machinery every other advisor depends on:
+
+  · Knowledge Engineer — Owns the knowledge base: schema, ingestion, search, migrations.
+  name for the knowledge advisor [Knowledge Engineer]: Alfred
+
+  · Chief of Staff — Owns the goal cascade, habits, and the review rhythm.
+  name for the planning advisor [Chief of Staff]:
+
+Now the elective themes — pick the parts of your life to delegate:
+
+  · health — Nutrition, biomarkers, and training programs.
+  delegate health? [Y/n]: y
+  name for the health advisor [Health Coach]: Coach
+
+  · finance — Net worth, cash flow, and multi-year investment planning.
+  delegate finance? [Y/n]: n
+
+  · career — Levelling, promotion evidence, sponsorship, and personal brand.
+  delegate career? [Y/n]: y
+  name for the career advisor [Career Coach]:
+```
+
+Press Enter to accept a suggested name, or type your own. **Only pick the areas you actually
+want** — you can add more whenever you like.
+
+In a hurry? `python3 install.py --defaults` accepts everything and asks nothing.
+
+### Step 3 — Say hello
+
+Open the folder in Claude Code:
+
+```bash
+claude
+```
+
+Then just start talking:
+
+> **You:** Jarvis, introduce me to my council.
+
+**Jarvis** is your single point of contact. You never have to remember who does what — tell Jarvis
+what you need, and it finds the right advisor.
+
+---
+
+## Your first conversation
+
+The best first move is letting your advisors get to know you:
+
+> **You:** Jarvis, I'd like to start my intake.
+
+Each advisor interviews you about their area — your goals, your constraints, what you've already
+tried. They ask one question at a time and follow up when an answer is vague, because a plan built
+on guesses isn't much of a plan.
+
+Stop whenever you like and pick it up later. Nothing gets lost.
+
+**Other good openers:**
+
+- *"Jarvis, what's on my plate this week?"*
+- *"Jarvis, ask my health advisor to build me a training plan."* — you can name an advisor directly
+- *"Jarvis, I need help with something nobody on the team covers."* — see [growing your team](#growing-your-team)
+
+---
+
+## Who's on your team
+
+Three members always come along. They run the machinery:
+
+| | Role |
+|---|---|
+| **Jarvis** | Your single point of contact. Listens, decides who should handle it, reports back. |
+| **HR Lead** | Hires new advisors when you need one that doesn't exist yet. |
+| **Researcher** | Digs into any topic properly, and researches what a new advisor should know. |
+
+Then the advisors themselves. **You choose which ones you want and what to call them** — the names
+below are only suggestions:
+
+| | Covers | Always included? |
+|---|---|---|
+| **Knowledge Engineer** | Your notes, contacts, files — everything the team remembers | Yes |
+| **Chief of Staff** | Goals, habits, planning, and keeping you honest about progress | Yes |
+| **Health Coach** | Nutrition, training, lab results, body metrics | Your choice |
+| **Finance Advisor** | Net worth, cash flow, long-term money planning | Your choice |
+| **Career Coach** | Promotions, evidence of impact, sponsorship, personal brand | Your choice |
+
+The first two come along no matter what, because every other advisor leans on them — one keeps the
+memory, the other keeps the plan.
+
+> **These are examples, not prescriptions.** Rename them, replace them, drop the ones you don't want.
+
+---
+
+## Growing your team
+
+Here's the part people tend to like most: **ask for something nobody covers, and the team hires
+someone.**
+
+> **You:** Jarvis, I'm planning six months in Japan and I need help.
+
+Jarvis sends **Researcher** to study what a great relocation advisor actually knows — visas,
+logistics, the questions people forget to ask. **HR Lead** turns that research into a new advisor
+with a name and a clear remit. Then your new advisor gets to work.
+
+Your council grows to fit your life, instead of you fitting your life to it.
+
+---
+
+## Two folders you'll actually use
+
+```
+Team's Inbox/    →   you drop things here for the team
+Owner's Inbox/   →   finished work appears here for you
+```
+
+Drop a PDF, a screenshot, a messy note — anything — into `Team's Inbox/`, then say *"Jarvis, check
+the inbox."* When the work is done you'll find it written up in `Owner's Inbox/`.
+
+That's the whole workflow. No app, no dashboard, just files you can read.
+
+---
+
+<br>
+
+# Under the hood
+
+Everything below is optional reading. Your council works without you knowing any of it.
+
+---
+
+## How it fits together
 
 ```mermaid
 flowchart TD
-    Owner([You, the owner]) <-->|talk to one contact| Jarvis
+    Owner([You]) <-->|one point of contact| Jarvis
 
-    subgraph Council[The Majlis]
-        Jarvis{{"Jarvis<br/>orchestrator<br/>(routes, never executes)"}}
+    subgraph Council[Your Majlis]
+        Jarvis{{"Jarvis<br/>routes the work<br/>never does it"}}
 
-        subgraph Specialists[Specialist advisors]
-            S1[Career Coach · career]
-            S2[Health Coach · health]
-            S3[Finance Advisor · finance]
-            S4[Chief of Staff · chief of staff]
-            S5[Knowledge Engineer · data]
+        subgraph Specialists[Your advisors]
+            S1[knowledge · always]
+            S2[planning · always]
+            S3[health]
+            S4[finance]
+            S5[career]
         end
 
-        subgraph Hiring[Hiring pipeline · when no one fits]
-            H1[Researcher<br/>researches the expertise]
-            H2[HR Lead<br/>designs & onboards the new agent]
+        subgraph Hiring[When nobody fits]
+            H1[Researcher<br/>studies the expertise]
+            H2[HR Lead<br/>designs the new advisor]
             H1 --> H2
         end
 
         Jarvis -->|delegates| Specialists
         Jarvis -->|no fit? hire| Hiring
-        H2 -.->|new agent joins| Specialists
+        H2 -.->|joins the team| Specialists
     end
 
-    Owner -->|drop a task| Inbox["Team's Inbox/ (intake)"]
+    Owner -->|drop a task| Inbox["Team's Inbox/"]
     Inbox --> Jarvis
-    Jarvis -->|finished deliverable| Outbox["Owner's Inbox/ (outbox)"]
+    Jarvis -->|finished work| Outbox["Owner's Inbox/"]
     Outbox --> Owner
 
-    Specialists -.->|working memory| Brain[("Team's brain/")]
-    Specialists -.->|optional, governed| DB[("Encrypted knowledge base<br/>SQLCipher")]
+    Specialists -.->|private notes| Brain[("Team's brain/")]
+    Specialists -.->|optional| DB[("Encrypted knowledge base")]
 ```
 
-### Core concepts
+**The one rule that makes it work:** Jarvis routes and summarises but never does the work itself.
+That keeps each advisor sharp in their own lane, and keeps the whole thing predictable.
 
-- **Orchestrator-only contact.** You address one member (*Jarvis*). It routes, synthesizes,
-  and reports back — but never writes the code, the plan, or the research itself. That
-  separation keeps the system predictable and keeps each specialist sharp in its lane.
-- **Named personas.** Every member has a human name, a persona, and a defined scope, so you
-  can address them directly: *"Jarvis, ask Finance Advisor to review my portfolio."*
-- **A self-growing team (the hiring pipeline).** When a request needs expertise no member
-  has, the orchestrator dispatches **Researcher** to research what a real expert in that domain
-  actually does, then **HR Lead** to design and onboard a new agent from that research. The
-  team literally grows to fit your life.
-- **File-based inbox workflow.** `Team's Inbox/` is where **you drop tasks**; `Owner's Inbox/`
-  is where **finished deliverables land** for you. Simple, auditable, and nothing gets lost.
-- **`Team's brain/` working memory.** Each member owns a private scratch folder for notes and
-  in-progress state, so a long task survives interruptions and session limits.
-- **Optional DB governance layer.** An encrypted SQLCipher knowledge base, governed by a
-  canonical `database/schema.sql` and a pre-apply `validate_staged.sh` gate that dry-runs
-  every migration before it touches your real data. Entirely optional — skip it if you don't
-  want a database.
+## Why there's a setup step
 
----
+Majlis ships **blank templates, not finished advisors.** `install.py` fills them in with the names
+you chose and the areas you picked, and writes out:
 
-## Quickstart
+| What | Where |
+|---|---|
+| Your advisors | `.claude/agents/` |
+| Their interview questions | `.claude/skills/<name>-intake/` |
+| Your team list | `team/roster.md` |
+| Your profile | `team/owner-profile.md` |
+| Their private notebooks | `Team's brain/` |
 
-1. **Clone the repo.**
-   ```bash
-   git clone <your-fork-url> majlis && cd majlis
-   ```
-2. **Run the installer — this is a prerequisite, not an optional step.**
-   ```bash
-   python3 install.py
-   ```
-   It asks which parts of your life you want to delegate (health, finance, career — plus the two
-   advisors everything depends on) and **what to call each advisor**, then renders your agent
-   files, your roster, your brain folders, and your owner dossier. Python 3 standard library
-   only — nothing to install.
+All of that is **generated**, and none of it is committed to git. The tracked source lives in
+`templates/`.
 
-   The repo ships **boilerplate in `templates/`, not finished agents**, so until you run this
-   there are no advisors to talk to. A re-run overwrites the generated files.
-3. **Open the folder in Claude Code.** The charter in `CLAUDE.md` loads automatically and
-   defines how the orchestrator behaves.
-4. **Talk to Jarvis.** Just describe what you need in plain language:
-   > "Jarvis, help me prep for a performance review next month."
-5. **Let it route or hire.** If a specialist fits, Jarvis delegates to them. If not, Jarvis
-   runs the hiring pipeline (Researcher → HR Lead) to create the right specialist, then
-   delegates.
-6. **Or work through the inbox.** Drop a task file into `Team's Inbox/` and say *"Jarvis,
-   check the inbox."* Finished deliverables appear in `Owner's Inbox/`.
+**Changed your mind?** Run `python3 install.py` again. It rewrites everything, and if you renamed or
+removed an advisor it clears the old one away. Two things it will never touch: advisors the team
+*hired* (it didn't create those), and anything in `Team's brain/` — that's their working memory, and
+losing it to a rename would be rude.
 
-One install step, no services to run — it's Markdown, a few scripts, and Claude Code.
+Because generated files get overwritten, **edit `templates/` if you want a change to stick.**
 
----
+## Where everything lives
 
-## The shipped roster
+```
+majlis/
+├── install.py            ← run this first
+├── CLAUDE.md             ← the house rules every advisor reads
+├── templates/            ← the blanks install.py fills in
+├── team/roster.md        ← who's on your team (generated)
+├── Team's Inbox/         ← you drop things here
+├── Owner's Inbox/        ← finished work lands here
+├── Team's brain/         ← each advisor's private notes
+├── database/             ← optional encrypted memory
+├── integrations/         ← optional, see below
+└── tests/
+```
 
-`install.py` offers these advisors and the names below are just the **defaults** — you are asked
-what to call each one, and the handle Jarvis dispatches with is slugified from your answer. The two
-marked *always* are installed no matter what, because every other advisor depends on them.
+## Optional: give your council a real memory
 
-**Founding team (the machinery):**
+Out of the box your advisors remember things in plain Markdown files. If you'd like something
+sturdier — searchable, structured, encrypted — there's a SQLite knowledge base in `database/`.
 
-| Member | Role | One-liner |
-|---|---|---|
-| **Jarvis** | Orchestrator | The single point of contact. Routes all work; never executes it. |
-| **HR Lead** | Head of People (HR) | Designs and onboards new AI team members from research. |
-| **Researcher** | Senior Researcher | Researches the expertise needed to hire well, and anything else. |
+- **`schema.sql`** — the structure: 63 tables covering notes, contacts, goals, habits, health
+  metrics, accounts and more. [`THEMES.md`](database/THEMES.md) explains what belongs to what.
+- **`validate_staged.sh`** — a safety gate. Every change is dry-run against a throwaway copy first
+  and rejected unless it's safely repeatable.
+- **SQLCipher encryption** — the real database is encrypted on disk, and no advisor ever holds your
+  passphrase. You apply changes yourself.
 
-**Example specialists (adapt to you):**
+Entirely optional. Delete `database/` and everything else still works.
 
-| Member | Domain | One-liner |
-|---|---|---|
-| **Career Coach** | Career | Career strategy, reviews, narratives, and growth planning. |
-| **Health Coach** | Health | Habits, fitness, and wellbeing planning (with safety disclaimers). |
-| **Finance Advisor** | Finance | Personal finance, budgeting, and portfolio thinking (not licensed advice). |
-| **Chief of Staff** *(always)* | Planning | Routines, scheduling, follow-ups, and keeping things moving. |
-| **Knowledge Engineer** *(always)* | Data Management | Owns the knowledge base: schema, migrations, and the validator gate. |
+## Optional: watch your advisors work
 
-Each specialist file starts with `# Example team member — adapt to your life.` They're
-scaffolding, not prescriptions.
-
----
-
-## Optional: the encrypted knowledge base
-
-If you want your council to remember structured facts about your life, Majlis ships an
-optional DB governance layer under `database/`:
-
-- **`schema.sql`** — the canonical structure (DDL only, no data). Any member writing SQL
-  checks this first, so nobody invents a phantom column.
-- **`validate_staged.sh`** — a pre-apply gate that dry-runs every staged `.sql` file against a
-  throwaway rebuild from `schema.sql` before anything reaches your real database.
-- **SQLCipher encryption** — the live database is encrypted at rest; helper scripts
-  (`db_connect.py`, `encrypt_db.sh`) show the pattern.
-
-You never have to use it. Delete `database/` and the council still works fine as a
-pure-orchestration template.
-
----
-
-## Optional: see your council in an agent runtime
-
-Majlis members are dispatched as in-process subagents, so by default a terminal multiplexer sees
-one Claude Code process rather than seven advisors. Set `MAJLIS_BACKEND` and Majlis will report
-**which advisor currently holds the floor, and whether it's blocked on you**, to an external
-runtime:
+By default a terminal multiplexer just sees "Claude Code running", not which advisor is busy. Set
+one environment variable and Majlis reports **who currently has the floor, and whether they're
+waiting on you**:
 
 ```bash
 export MAJLIS_BACKEND=herdr    # or: log
@@ -168,47 +304,53 @@ export MAJLIS_BACKEND=herdr    # or: log
 | Backend | What it does |
 |---|---|
 | `noop` *(default)* | Nothing at all. |
-| `herdr` | Labels your [Herdr](https://herdr.dev) pane with the live advisor and its state. |
-| `log` | Appends JSONL to `Team's brain/jarvis/agent-events.jsonl` — works with no runtime. |
+| `herdr` | Labels your [Herdr](https://herdr.dev) pane with the active advisor. |
+| `log` | Writes a JSONL activity log — works with no extra tools. |
 
-Adding another runtime means writing one small adapter against a four-verb contract. Details and
-the known trade-offs are in [`integrations/README.md`](integrations/README.md).
+Off unless you turn it on. Details in [`integrations/README.md`](integrations/README.md).
 
-**This is entirely optional and off unless you opt in.** Leave `MAJLIS_BACKEND` unset and the
-hooks exit immediately.
+## Keeping your data private
+
+**This is your personal life. Treat the folder accordingly.**
+
+- Everything in `Owner's Inbox/`, `Team's Inbox/`, `Team's brain/` and your profile is **private and
+  git-ignored** — but if you fork this publicly, check before you push.
+- If you use the encrypted database, your **passphrase belongs in a password manager** — never in a
+  file, never in the repo, never in an environment variable you commit.
+- The shipped templates contain no personal data. Keep it that way.
+
+## Make it yours
+
+- **Rename your advisors** any time — re-run `install.py` with different names.
+- **Change how one behaves** by editing its template in `templates/advisors/`.
+- **Change the house rules** in `CLAUDE.md` — the charter every advisor reads.
+- **Just ask for what you need.** The fastest way to grow your council is to ask for something it
+  can't do yet and let it hire.
+
+One thing is fixed: **the orchestrator is always called Jarvis.** The charter names it throughout,
+which is what lets a fresh copy work before you've run anything.
+
+## Common questions
+
+**Do I need to know how to code?**
+No. Two commands to set up, and after that it's a conversation.
+
+**Does this send my data anywhere?**
+Only to Claude, the same as any Claude Code session. Nothing else phones home — no servers, no
+accounts, no telemetry.
+
+**Can I add advisors later?**
+Two ways: re-run `install.py` to switch on an area you skipped, or ask Jarvis for something new and
+let the team hire someone.
+
+**What if I mess it up?**
+Run `python3 install.py` again. It rebuilds everything from the templates.
+
+**Is this medical or financial advice?**
+No — and the health and finance advisors say so themselves, repeatedly. They exist to help you
+prepare for conversations with real professionals, not to replace them.
 
 ---
 
-## Security note
-
-**Never commit your knowledge base or your passphrase.**
-
-- The included `.gitignore` already excludes `*.db`, `*.bak`, and personal SQL/data files —
-  but treat that as defense-in-depth, not your only guard.
-- Your SQLCipher **passphrase lives only in your password manager** — never in the repo,
-  never in a file, never in an environment file you commit.
-- Anything you put in `Owner's Inbox/`, `Team's Inbox/`, or `Team's brain/` is **your private
-  content** — keep it out of any public fork.
-
-Before you push anything public, scan for personal data. This template ships clean; keep it
-that way.
-
----
-
-## Adapt it to you
-
-- **Rename the orchestrator** if *Jarvis* isn't your style — it's just a name in `CLAUDE.md`
-  and the agent files.
-- **Swap the specialists.** Keep the founding trio (they run the machinery); replace the five
-  example advisors with the roles *you* need — a writer, a legal researcher, a travel planner,
-  a startup co-founder.
-- **Let the team hire.** The fastest way to build your council is to just ask: *"Jarvis, I
-  need help with X."* If no one fits, the hiring pipeline builds the specialist for you.
-- **Keep the charter as your contract.** `CLAUDE.md` is the operating charter every member
-  reads. Edit it to change how your council behaves.
-
----
-
-## License
-
-MIT — see [LICENSE](LICENSE). Contributions welcome; see [CONTRIBUTING.md](CONTRIBUTING.md).
+Contributions welcome — see [CONTRIBUTING.md](CONTRIBUTING.md).
+Licensed under [MIT](LICENSE).
