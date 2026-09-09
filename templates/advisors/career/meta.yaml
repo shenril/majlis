@@ -1,0 +1,9 @@
+# Manifest for the career advisor package. Read by install.py.
+theme: career
+order: 5
+kind: elective
+placeholder: career_advisor
+default_name: Career Coach
+model: opus
+summary: Levelling, promotion evidence, sponsorship, and personal brand.
+requires: [knowledge, planning]
