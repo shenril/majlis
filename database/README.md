@@ -7,6 +7,8 @@ data owner and never run DDL themselves.
 
 - **Database:** `database/knowledge.db`
 - **Schema (source of truth):** `database/schema.sql` (well-commented, sectioned; DDL-only)
+- **Theme map:** [`THEMES.md`](THEMES.md) — which tables serve which life theme, and who owns
+  them (machine-readable twin: [`theme-map.yaml`](theme-map.yaml))
 - **SQLite:** FTS5 required · STRICT tables · **Encryption: SQLCipher** (see *Encryption (SQLCipher)*)
 
 > *Captured, normalized, cross-linked, searchable — every item in its place, nothing
@@ -70,6 +72,9 @@ indexes) — it is regenerated from the live DB after every migration and is aut
 The store ships empty apart from the canonical `entity_types` vocabulary seed.
 
 ### Domain sections (see `schema.sql` for the full, commented DDL)
+
+> For the table-by-table breakdown of which domain each table belongs to, see
+> [`THEMES.md`](THEMES.md).
 
 1. **Knowledge base & document index** — `entries` (journal/notes, Zettelkasten kinds),
    `meetings` + `meeting_attendees`, personal CRM (`people`, `organizations`,
