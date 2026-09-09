@@ -205,7 +205,14 @@ def install(chosen: dict, packages: dict, mapping: dict) -> list[str]:
 
         intake = pkg["dir"] / "intake.md"
         if intake.exists():
-            put(f".claude/skills/{handle}-intake/SKILL.md", render(intake, mapping))
+            # Each advisor gets its OWN intake skill: the domain questions from
+            # its package, followed by the shared six-bucket spine. Installing an
+            # advisor installs its interview; skipping one installs nothing.
+            spine = TEMPLATES / "shared" / "intake-spine.md"
+            text = render(intake, mapping)
+            if spine.exists():
+                text = text.rstrip("\n") + "\n\n" + render(spine, mapping)
+            put(f".claude/skills/{handle}-intake/SKILL.md", text)
 
         brain = ROOT / f"Team's brain/{handle}"
         brain.mkdir(parents=True, exist_ok=True)
