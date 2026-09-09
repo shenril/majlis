@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 732" width="860" height="732" role="img" aria-label="A conversation with Jarvis routing to the career advisor">
+  <rect width="860" height="732" rx="14" fill="#0d1117" stroke="#2a3350"/>
+  <text x="30" y="34" fill="#7d879e" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12.5">claude — majlis</text>
+  <rect x="468" y="58" width="362" height="74" rx="13" fill="#1f6feb"/>
+  <text x="484" y="88" fill="#ffffff" font-family="ui-sans-serif, -apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="13.5" xml:space="preserve">Jarvis, I have a performance review in</text>
+  <text x="484" y="109" fill="#ffffff" font-family="ui-sans-serif, -apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="13.5" xml:space="preserve">three weeks. Help me get ready.</text>
+  <text x="830" y="51" text-anchor="end" fill="#7d879e" font-family="ui-sans-serif, -apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="11.5">You</text>
+  <text x="430" y="162" text-anchor="middle" fill="#7d879e" font-family="ui-sans-serif, -apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="12.5" font-style="italic">routing to your career advisor →</text>
+  <rect x="30" y="184" width="414" height="221" rx="13" fill="#161b22" stroke="#2a3350"/>
+  <text x="46" y="214" fill="#f0b86e" font-family="ui-sans-serif, -apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="12.5" font-weight="bold" letter-spacing="0.4">Career Coach</text>
+  <text x="46" y="235" fill="#e6edf3" font-family="ui-sans-serif, -apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="13.5" xml:space="preserve">Before I draft anything I need evidence, not</text>
+  <text x="46" y="256" fill="#e6edf3" font-family="ui-sans-serif, -apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="13.5" xml:space="preserve">feelings about the year. Three questions:</text>
+  <text x="46" y="277" fill="#e6edf3" font-family="ui-sans-serif, -apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="13.5" xml:space="preserve"></text>
+  <text x="46" y="298" fill="#e6edf3" font-family="ui-sans-serif, -apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="13.5" xml:space="preserve">1. Which projects did you lead end-to-end?</text>
+  <text x="46" y="319" fill="#e6edf3" font-family="ui-sans-serif, -apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="13.5" xml:space="preserve">2. Who outside your team noticed, and how</text>
+  <text x="46" y="340" fill="#e6edf3" font-family="ui-sans-serif, -apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="13.5" xml:space="preserve">   do you know?</text>
+  <text x="46" y="361" fill="#e6edf3" font-family="ui-sans-serif, -apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="13.5" xml:space="preserve">3. What did you say no to, and what did</text>
+  <text x="46" y="382" fill="#e6edf3" font-family="ui-sans-serif, -apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="13.5" xml:space="preserve">   that protect?</text>
+  <rect x="485" y="421" width="345" height="95" rx="13" fill="#1f6feb"/>
+  <text x="501" y="451" fill="#ffffff" font-family="ui-sans-serif, -apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="13.5" xml:space="preserve">I led the billing migration. Finance</text>
+  <text x="501" y="472" fill="#ffffff" font-family="ui-sans-serif, -apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="13.5" xml:space="preserve">mentioned it in their QBR. I dropped</text>
+  <text x="501" y="493" fill="#ffffff" font-family="ui-sans-serif, -apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="13.5" xml:space="preserve">the analytics rewrite.</text>
+  <text x="830" y="414" text-anchor="end" fill="#7d879e" font-family="ui-sans-serif, -apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="11.5">You</text>
+  <rect x="30" y="532" width="423" height="158" rx="13" fill="#161b22" stroke="#2a3350"/>
+  <text x="46" y="562" fill="#f0b86e" font-family="ui-sans-serif, -apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="12.5" font-weight="bold" letter-spacing="0.4">Career Coach</text>
+  <text x="46" y="583" fill="#e6edf3" font-family="ui-sans-serif, -apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="13.5" xml:space="preserve">Good — that's a scope story, not a task list.</text>
+  <text x="46" y="604" fill="#e6edf3" font-family="ui-sans-serif, -apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="13.5" xml:space="preserve">Drafting your review narrative around blast</text>
+  <text x="46" y="625" fill="#e6edf3" font-family="ui-sans-serif, -apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="13.5" xml:space="preserve">radius now.</text>
+  <text x="46" y="646" fill="#e6edf3" font-family="ui-sans-serif, -apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="13.5" xml:space="preserve"></text>
+  <text x="46" y="667" fill="#7ee2a8" font-family="ui-sans-serif, -apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="13.5" xml:space="preserve">✓ Owner's Inbox/performance-review-prep.md</text>
+</svg>
