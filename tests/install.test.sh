@@ -62,5 +62,23 @@ python3 install.py --defaults >/dev/null 2>&1
 grep -rq '\${' .claude/agents team/roster.md team/owner-profile.md 2>/dev/null \
   && no "no unresolved placeholders" "found one" || ok "no unresolved placeholders"
 
+# Every combination of the elective themes must render. A cross-package
+# reference (career's prompt naming the finance advisor) once made
+# "career without finance" crash, and no single-combination test caught it.
+combo_fail=""
+for h in "" health; do for f in "" finance; do for c in "" career; do
+  C="$(mktemp -d)"
+  ( cd "$ROOT" && git ls-files -c -z 2>/dev/null | tar -cf - --null -T - ) | ( cd "$C" && tar -xf - )
+  { echo "knowledge: Knowledge Engineer"; echo "planning: Chief of Staff"
+    [ -n "$h" ] && echo "health: Health Coach"
+    [ -n "$f" ] && echo "finance: Finance Advisor"
+    [ -n "$c" ] && echo "career: Career Coach"; } > "$C/combo.yml"
+  ( cd "$C" && python3 install.py --answers combo.yml >/dev/null 2>&1 ) \
+    || combo_fail="$combo_fail [${h:--} ${f:--} ${c:--}]"
+  rm -rf "$C"
+done; done; done
+[ -z "$combo_fail" ] && ok "all 8 elective combinations render" \
+  || no "all 8 elective combinations render" "failed:$combo_fail"
+
 echo "== $PASS passed, $FAIL failed"
 [ "$FAIL" -eq 0 ]
