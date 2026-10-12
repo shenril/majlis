@@ -14,13 +14,19 @@ not just be logged.
 
 | Cadence | Cadence trigger | Duration | What it measures |
 |---|---|---|---|
-| **Daily** | End of day / start of next | ~5 min | Did the day's 1–3 MITs ship? Habit check-ins logged? Loose ends captured? Tomorrow's MITs set? |
+| **Daily** | End of day | ~1 min | **Run the `end-day` skill** — it owns this cadence. Did the day's 1–3 MITs ship? Habit check-ins logged? Rolled items decided? Tomorrow's MITs set? |
 | **Weekly** | Same weekday each week (keystone) | 30–60 min | Outcomes vs the weekly scorecard, execution %, habit adherence %, projects & next-actions reviewed, inboxes to zero, next week's 1–3 outcomes |
 | **Monthly** | First/last day of month | ~30 min | Monthly goal progress, score the quarter's key results, review ongoing-area health, adjust habits |
 | **Quarterly** | End of the execution cycle | ~60–90 min | Score objectives/key results 0.0–1.0, retro (stop/start/continue), set next quarter, refresh the cycle plan against the annual direction |
 
 The **weekly review is the keystone — never skip it.** Everything else can slip a
 day; the weekly cannot.
+
+**The daily cadence is not run from this skill.** `end-day` implements it, writes a dated file to
+the planning advisor's working memory, and deliberately stages no SQL. The weekly pass below reads
+those seven files and reconciles the whole week into the knowledge base in a single staged write —
+so the owner applies one keyed session per week rather than one per day. Daily files are the raw
+record the weekly review reasons over; a week missing them is a week reviewed from memory.
 
 ## Steps (every cadence follows the same shape)
 
