@@ -31,6 +31,7 @@ git-ignored build artifacts, so they will not appear in a fresh clone.
 | **hire-team-member** | Jarvis / Researcher / HR Lead | The self-growing pipeline: Researcher's Expertise Brief → HR Lead designs & onboards the persona → Jarvis delegates the task. |
 | **run-review-cadence** | the planning advisor | Runs the daily/weekly/monthly/quarterly review loop so reviews happen on schedule and change behavior. |
 | **goal-pace-check** | the planning advisor | Proactive surfacing of off-pace KRs, stalled projects, and slipping habits with specifics and numbers. |
+| **start-day** | the planning advisor | The morning cue: three lines of context, confirms today's MITs rather than re-asking, names only what is due today. Writes the dated daily file; stages no SQL. |
 | **safe-staged-migration** | the data specialist | Dry-runs every staged SQL file against a throwaway rebuild from `schema.sql` before it touches the real database. |
 
 ## Adding a skill
