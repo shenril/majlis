@@ -29,6 +29,7 @@ git-ignored build artifacts, so they will not appear in a fresh clone.
 |-------|---------|--------------|
 | **collect-open-tasks** | Jarvis | "Round the table" sweep — polls active members for items genuinely blocked on the owner, dedupes, prioritizes, and digests into one action-first list. |
 | **hire-team-member** | Jarvis / Researcher / HR Lead | The self-growing pipeline: Researcher's Expertise Brief → HR Lead designs & onboards the persona → Jarvis delegates the task. |
+| **end-day** | the planning advisor | The owner's end-of-day shutdown ritual: how the day went, habit check-ins, rolled items decided rather than carried, tomorrow's MITs, explicit close. Writes a dated daily file; stages no SQL. |
 | **run-review-cadence** | the planning advisor | Runs the daily/weekly/monthly/quarterly review loop so reviews happen on schedule and change behavior. |
 | **goal-pace-check** | the planning advisor | Proactive surfacing of off-pace KRs, stalled projects, and slipping habits with specifics and numbers. |
 | **safe-staged-migration** | the data specialist | Dry-runs every staged SQL file against a throwaway rebuild from `schema.sql` before it touches the real database. |
